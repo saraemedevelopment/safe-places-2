@@ -3,11 +3,11 @@
     <div class="thumbnail">
       <!-- <img [src]="place.upload" alt="..."> -->
       <div class="caption">
+          <img [src]="place.upload" alt="">
         <h3>{{ place.name }}</h3>
         <p>{{ place.description }}</p>
-        <p>{{ place.address }}</p>
         <p>{{ place.city }}</p>
-        <p>{{ place.trustLevel }}</p>
+        <p>Valoración media: {{ place.trustLevel }}</p>
         <p>
           <!-- <a [routerLink]="['/new-review']" class="btn btn-primary" role="button">Escribir opinión</a> -->
           <button class="btn btn-primary" (click)="showSelected = !showSelected">Escribir opinión</button>

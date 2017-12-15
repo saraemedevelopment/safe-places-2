@@ -1,10 +1,10 @@
   <div class="row">
       <div *ngFor="let place of places" class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img [src]="place.image" alt="">
+          <img [src]="place.upload" alt="">
           <div class="caption">
             <h3>{{ place.name }} </h3>
-            <!-- <p>...</p> -->
+            <p>{{ place.description }}</p>
             <p><a [routerLink]="['/places', place._id]" class="btn btn-primary" role="button">Ver</a> 
             <!-- <a href="#" class="btn btn-default" role="button">Button</a></p> -->
           </div>
