@@ -31,16 +31,16 @@ export class NewReviewComponent implements OnInit {
 
   };
 
-  // submit(text, rating) {
-  //   console.log(text, rating, this.place._id)
-  //   // this.showSelected = false;
-  //   this.review = this.reviewsService.create({ text, rating }, this.place._id).subscribe(
-  //     listReviews => this.review=listReviews
-  //   );
+  submit(text, rating) {
+    console.log(text, rating, this.place._id)
+    this.showSelected = false;
+    this.review = this.reviewsService.create({ text, rating }, this.place._id).subscribe(
+      listReviews => this.review=listReviews
+    );
   
-  //   this.HideButton();
+    this.HideButton();
 
-  // }
+  }
 
   ngOnInit() {
     // this.route.params.subscribe(params => {
