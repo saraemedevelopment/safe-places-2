@@ -35,6 +35,12 @@ export class ReviewsService {
 
   }
 
+  remove(id) {
+    return this.http.delete(`${this.BASE_URL}/${id}`, this.options)
+      .map((res) => res.json());
+
+  }
+
  
 }
 

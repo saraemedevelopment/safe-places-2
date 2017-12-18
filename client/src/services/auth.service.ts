@@ -9,11 +9,12 @@ import { environment }  from '../environments/environment';
 const  BASE_DOMAIN:string= environment.baseurl;
 
 
-const BASEURL = BASE_DOMAIN + "/auth";
-// const BASEURL = `${BASE_DOMAIN}/auth`;
+// const BASEURL = BASE_DOMAIN + "/auth";
+
 
 @Injectable()
 export class AuthService {
+ BASEURL: string = `${BASE_DOMAIN}/auth`;
 
   public user:object;
   public userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
@@ -53,14 +54,14 @@ export class AuthService {
 
     signup(username,password) {
       console.log("entro la funcion");
-      return this.http.post(`${BASEURL}/signup`, {username,password}, this.options)
+      return this.http.post(`${this.BASEURL}/signup`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
     login(username,password) {
-      return this.http.post(`${BASEURL}/login`, {username,password}, this.options)
+      return this.http.post(`${this.BASEURL}/login`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
@@ -68,7 +69,7 @@ export class AuthService {
 
     logout() {
       console.log("logout llamada")
-      return this.http.get(`${BASEURL}/logout`, this.options)
+      return this.http.get(`${this.BASEURL}/logout`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(null))
         .catch(this.handleError);
@@ -76,7 +77,7 @@ export class AuthService {
     }
 
     isLoggedIn() {
-      return this.http.get(`${BASEURL}/loggedin`, this.options)
+      return this.http.get(`${this.BASEURL}/loggedin`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);

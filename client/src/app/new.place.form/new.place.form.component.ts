@@ -32,10 +32,6 @@ export class NewPlaceFormComponent {
     "mayores",
     "otros"
   ];
-// crear instancia en el servicio, no aqui?
-  // uploader: FileUploader = new FileUploader({
-  //   url: `http://localhost:3000/api/places`
-  // });
 
   // newPlace = {
   //   name: '',
@@ -50,16 +46,14 @@ export class NewPlaceFormComponent {
 
   constructor(public placeService: PlacesService) { }
 
-  create(name, description, url) {
-    console.log(name, description, url)
+  submit(name, description, url) {
+    console.log("llamando")
     this.place = this.placeService.create({ name, description, url }).subscribe();
+  
     };
 
  
-  
-
-
-  // submit() {
+    // submit() {
   //   this.uploader.onBuildItemForm = (item, form) => {
   //     form.append('name', this.newPlace.name);
   //     form.append('category', this.newPlace.category);

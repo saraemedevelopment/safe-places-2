@@ -27,7 +27,7 @@ export class PlacesService {
       .map((res) => res.json());
   }
 
-  // por categorias-----------
+  // CATEGORIES-----------
   getPlaceByCat(url: string) {
     return this.http.get(`${this.BASE_URL}/cat/${url}`, this.options)
       .map((res) => res.json());
